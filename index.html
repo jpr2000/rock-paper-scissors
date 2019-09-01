@@ -17,6 +17,40 @@
         function randomNumber() {
             return Math.floor(Math.random() * 3);
         }
+
+        function getUserChoice() {
+            let userInput = prompt("What is your choice?");
+            while (interpretUserInput(userInput) == "") {
+                userInput = prompt("Incorrect entry. What is your choice?");
+            }
+            return interpretUserInput(userInput);
+        }
+
+        function interpretUserInput(userInput) {
+            if (userInput.match(/rock/i)) return "Rock";
+            else if (userInput.match(/paper/i)) return "Paper";
+            else if (userInput.match(/Scissors/i)) return "Scissors";
+            else return "";
+        }
+
+        function singleRound(playerSelection, computerSelection) {
+            if (playerSelection == "Rock") {
+                return (computerSelection == "Scissors") ? "You Win! Rock beats Scissors" :
+                       (computerSelection == "Paper") ? "You Lose! Paper beats Rock" :
+                       "You Tie!";
+            }
+            if (playerSelection == "Paper") {
+                return (computerSelection == "Scissors") ? "You Lose! Scissors beats Paper" :
+                       (computerSelection == "Rock") ? "You Win! Paper beats Rock" :
+                       "You Tie!";
+            }
+            if (playerSelection == "Scissors") {
+                return (computerSelection == "Paper") ? "You Win! Scissors beats Paper" :
+                       (computerSelection == "Rock") ? "You Lose! Rock beats Scissors" :
+                       "You Tie!";
+            }
+        }
+        
     </script>
 </body>
 </html>

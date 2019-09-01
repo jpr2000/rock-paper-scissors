@@ -33,23 +33,50 @@
             else return "";
         }
 
-        function singleRound(playerSelection, computerSelection) {
+        function winLogic(playerSelection, computerSelection) {
             if (playerSelection == "Rock") {
-                return (computerSelection == "Scissors") ? "You Win! Rock beats Scissors" :
-                       (computerSelection == "Paper") ? "You Lose! Paper beats Rock" :
-                       "You Tie!";
+                return (computerSelection == "Scissors") ? ["You Win! Rock beats Scissors", "Player"] :
+                       (computerSelection == "Paper") ? ["You Lose! Paper beats Rock", "Computer"] :
+                       ["You Tie!", "Tie"];
             }
             if (playerSelection == "Paper") {
-                return (computerSelection == "Scissors") ? "You Lose! Scissors beats Paper" :
-                       (computerSelection == "Rock") ? "You Win! Paper beats Rock" :
-                       "You Tie!";
+                return (computerSelection == "Scissors") ? ["You Lose! Scissors beats Paper", "Computer"] :
+                       (computerSelection == "Rock") ? ["You Win! Paper beats Rock", "Player"] :
+                       ["You Tie!", "Tie"];
             }
             if (playerSelection == "Scissors") {
-                return (computerSelection == "Paper") ? "You Win! Scissors beats Paper" :
-                       (computerSelection == "Rock") ? "You Lose! Rock beats Scissors" :
-                       "You Tie!";
+                return (computerSelection == "Paper") ? ["You Win! Scissors beats Paper", "Player" ] :
+                       (computerSelection == "Rock") ? ["You Lose! Rock beats Scissors", "Computer"] :
+                       ["You Tie!", "Tie"];
             }
         }
+
+        // weird stuff below
+        function singleRound() {
+            let results = winLogic(getUserChoice(), computerPlay());
+            console.log(results[0]);
+            return results[1];
+
+        }
+
+        function game() {
+            let playerScore = 0;
+            let computerScore = 0;
+
+            while(playerScore < 3 && computerScore < 3) {
+                let roundWinner = singleRound();
+
+                if (roundWinner == "Player") playerScore++;
+                else if (roundWinner == "Computer") computerScore++;
+
+                console.log(`Player ${playerScore} : ${computerScore} Computer`);
+            }
+
+            return (playerScore == 3) ? "You Won! Nice job!" :
+                   (computerScore == 3) ? "You Lost! Get 'em next time!" :
+                   "";
+        }
+
         
     </script>
 </body>

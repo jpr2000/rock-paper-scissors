@@ -1,0 +1,23 @@
+body {
+    background-color: skyblue;
+    text-align: center;
+    display: grid;
+    grid-gap: 20px;
+    align-items: center;
+    
+}
+
+#buttonContainer {
+    align-content: center;
+}
+
+.buttons {
+    height: 33px;
+    width: 75px;
+    border-radius: 10px;
+    border-color: black;
+}
+
+button:focus {
+    outline: 0;
+}

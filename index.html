@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <div id="roundResults"></div>
     <div id="runningScore"></div>
+    <div id="buttonContainer">
+        <button id="rock" class="buttons">Rock</button>
+        <button id="paper" class="buttons">Paper</button>
+        <button id="scissors" class="buttons">Scissors</button>        
+    </div>
+    <div id="roundResults"></div>
     <div id="winner"></div>
 
     <script>
@@ -127,12 +129,12 @@
             }
 
             function checkWinner() {
-                if (playerScore == 3) winner.textContent = "You Won! Nice job!";
-                else if (computerScore == 3) winner.textContent = "You Lost! Get 'em next time!";
+                if (playerScore == 3) winner.textContent = "You Won the First to 3! Nice job!";
+                else if (computerScore == 3) winner.textContent = "You Lost the First to 3! Get 'em next time!";
             }
         }
 
-
+        game();
     </script>
 </body>
 </html>

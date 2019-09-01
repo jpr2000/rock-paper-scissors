@@ -33,29 +33,53 @@
             else return "";
         }
 
-        function winLogic(playerSelection, computerSelection) {
+        // Returns an array with message to display and results
+        function determineWinner(playerSelection, computerSelection) {
             if (playerSelection == "Rock") {
-                return (computerSelection == "Scissors") ? ["You Win! Rock beats Scissors", "Player"] :
-                       (computerSelection == "Paper") ? ["You Lose! Paper beats Rock", "Computer"] :
-                       ["You Tie!", "Tie"];
+                if (computerSelection == "Scissors") {
+                    console.log("You Win! Rock beats Scissors");
+                    return "Player";
+                }
+                else if (computerSelection == "Paper") {
+                    console.log("You Lose! Paper beats Rock");
+                    return "Computer";
+                }
+                else {
+                    console.log("You Tie!");
+                }
             }
+
             if (playerSelection == "Paper") {
-                return (computerSelection == "Scissors") ? ["You Lose! Scissors beats Paper", "Computer"] :
-                       (computerSelection == "Rock") ? ["You Win! Paper beats Rock", "Player"] :
-                       ["You Tie!", "Tie"];
+                if (computerSelection == "Scissors") {
+                    console.log("You Lose! Scissors beats Paper");
+                    return "Computer";
+                }
+                else if (computerSelection == "Rock") {
+                    console.log("You Win! Paper beats Rock");
+                    return "Player";
+                }
+                else {
+                    console.log("You Tie!");
+                }
             }
+
             if (playerSelection == "Scissors") {
-                return (computerSelection == "Paper") ? ["You Win! Scissors beats Paper", "Player" ] :
-                       (computerSelection == "Rock") ? ["You Lose! Rock beats Scissors", "Computer"] :
-                       ["You Tie!", "Tie"];
+                if (computerSelection == "Paper") {
+                    console.log("You Win! Scissors beats Paper");
+                    return "Player";
+                }
+                else if (computerSelection == "Rock") {
+                    console.log("You Lose! Rock beats Scissors");
+                    return "Computer";
+                }
+                else {
+                    console.log("You Tie!");
+                }
             }
         }
 
         function singleRound() {
-            let results = winLogic(getUserChoice(), computerPlay());
-            console.log(results[0]);
-            return results[1];
-
+            return determineWinner(getUserChoice(), computerPlay());
         }
 
         function game() {
